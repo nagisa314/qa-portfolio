@@ -1,484 +1,404 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kraven Cris Añonuevo | Junior QA Engineer & Manual Tester Portfolio</title>
+    <title>Kraven Cris Añonuevo | Junior QA Engineer & Manual Tester</title>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN for modern utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#07090e',
+                            800: '#0f1420',
+                            700: '#182032',
+                            600: '#232d44',
+                        },
+                        brand: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            emerald: '#10b981',
+                            purple: '#8b5cf6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-primary: #0f172a;
-            --bg-card: #1e293b;
-            --bg-card-hover: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-blue: #38bdf8;
-            --accent-green: #34d399;
-            --accent-purple: #a78bfa;
-            --border-color: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding-bottom: 60px;
+            background-color: #07090e;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .glass-card {
+            background: rgba(15, 20, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Header / Hero */
-        header {
-            padding: 80px 0 60px;
-            border-bottom: 1px solid var(--border-color);
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
         }
 
-        .profile-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin-bottom: 24px;
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 2s infinite;
         }
 
-        .contact-links {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-blue);
-            color: #0f172a;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-outline:hover {
-            background: var(--bg-card);
-            border-color: var(--text-secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 32px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 24px;
-            background: var(--accent-blue);
-            border-radius: 2px;
-        }
-
-        /* Grid Layouts */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .skill-card h3 {
-            font-size: 1.1rem;
-            color: var(--accent-blue);
-            margin-bottom: 12px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Project Cards */
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 28px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 24px;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .project-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .project-badge {
-            background: rgba(52, 211, 153, 0.1);
-            color: var(--accent-green);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .project-highlights {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .project-highlights li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        .project-highlights li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-        }
-
-        /* Live QA Samples Box */
-        .sample-box {
-            background: #090d16;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-        }
-
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.875rem;
-        }
-
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        td {
-            color: var(--text-secondary);
-        }
-
-        .status-pass {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .section-title { font-size: 1.4rem; }
-            .project-card { padding: 20px; }
+        .tab-btn.active {
+            background-color: rgba(6, 182, 212, 0.15);
+            color: #38bdf8;
+            border-color: rgba(6, 182, 212, 0.4);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen antialiased selection:bg-brand-cyan/30 selection:text-brand-cyan">
 
-    <div class="container">
-        <!-- Header / Hero -->
-        <header>
-            <span class="profile-badge">Entry-Level QA Engineer & Manual Tester</span>
-            <h1>Kraven Cris Añonuevo</h1>
-            <p class="subtitle">
-                BS Information Technology Graduate (Cavite State University, Sept 2026). Passionate about manual testing, functional verification, test case design, and defect reporting.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:kravenanonuevo2@gmail.com" class="btn btn-primary">✉ Email Me</a>
-                <a href="https://linkedin.com/in/kraven-cris-añoneuvo" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
-                <a href="https://github.com/nagisa314" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-dark-900/80 border-b border-white/5 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-bold text-lg tracking-tight flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center text-dark-900 font-extrabold text-sm">QA</span>
+                <span class="text-white">Kraven<span class="text-brand-cyan">.qa</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-brand-cyan transition-colors">About</a>
+                <a href="#skills" class="hover:text-brand-cyan transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-brand-cyan transition-colors">Projects</a>
+                <a href="#deliverables" class="hover:text-brand-cyan transition-colors">QA Artifacts</a>
             </div>
-        </header>
+            <a href="mailto:kravenanonuevo2@gmail.com" class="px-4 py-2 rounded-lg bg-brand-cyan/10 text-brand-cyan hover:bg-brand-cyan/20 border border-brand-cyan/30 text-sm font-semibold transition-all">
+                Get in Touch
+            </a>
+        </div>
+    </nav>
 
-        <!-- Core QA Skills -->
-        <section id="skills">
-            <h2 class="section-title">Core QA Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Manual & Functional Testing</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Testing web and game applications against functional requirements.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Exploratory Testing</span>
-                        <span class="tag">Regression Testing</span>
-                        <span class="tag">Smoke Testing</span>
-                        <span class="tag">UI/UX Verification</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Test Design & Methodology</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Structuring effective test suites to catch critical edge cases.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Boundary Value Analysis</span>
-                        <span class="tag">Equivalence Partitioning</span>
-                        <span class="tag">SDLC & STLC</span>
-                        <span class="tag">Use Case Testing</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Defect Tracking & Tools</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Documenting clear, reproducible bug reports and managing test flows.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Jira Familiarity</span>
-                        <span class="tag">MySQL Basics</span>
-                        <span class="tag">Discord/Slack Collaboration</span>
-                        <span class="tag">OBS Video Proof</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="max-w-6xl mx-auto px-6 pt-12 pb-24">
 
-        <!-- QA Projects & Experience -->
-        <section id="projects">
-            <h2 class="section-title">QA Projects & Testing Experience</h2>
-
-            <!-- Project 1: One Health -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">One Health Platform (onehealth.my)</div>
-                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Municipal Healthcare Management Web App</div>
-                    </div>
-                    <span class="project-badge">Academic Capstone Project</span>
-                </div>
-                <p class="project-desc">
-                    Performed end-to-end manual functional testing and test case design for a web-based healthcare system serving patient records, immunization tracking, and public search.
-                </p>
-                <ul class="project-highlights">
-                    <li>Designed and executed manual test cases covering user search, patient creation, and access control.</li>
-                    <li>Applied Boundary Value Analysis (BVA) on patient registration fields to catch validation missing boundaries.</li>
-                    <li>Reported and tracked defects in Jira with step-by-step reproduction steps and expected vs. actual behavior.</li>
-                    <li>Verified database query behavior (MySQL) for case-insensitive search and duplicate record handling.</li>
-                </ul>
+        <!-- HERO SECTION -->
+        <section id="about" class="pt-8 pb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+                Open to Junior QA & Manual Tester Roles
             </div>
 
-            <!-- Project 2: Golden Tides -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">Golden Tides</div>
-                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Community Game QA Playtesting</div>
-                    </div>
-                    <span class="project-badge">Ad-hoc Game QA</span>
-                </div>
-                <p class="project-desc">
-                    Participated in ad-hoc functional playtesting on internal developer demo builds for a multiplayer game title.
-                </p>
-                <ul class="project-highlights">
-                    <li>Executed ad-hoc exploratory testing on internal demo builds prior to public updates.</li>
-                    <li>Logged bugs directly to developers via dedicated Discord QA channels and Jira tracking.</li>
-                    <li>Conducted retests on resolved bug fixes to confirm issue resolution without regressions.</li>
-                </ul>
-            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                Hi, I'm Kraven Cris Añonuevo.<br>
+                I test apps to <span class="gradient-text">catch bugs before users do.</span>
+            </h1>
 
-            <!-- Project 3: Big Time -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">Big Time (Alpha & Beta Testing)</div>
-                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Action RPG Game Testing</div>
-                    </div>
-                    <span class="project-badge">Beta / Alpha Tester</span>
-                </div>
-                <p class="project-desc">
-                    Conducted long-term exploratory testing across pre-release game patches to detect gameplay glitches, balance issues, and UI defects.
-                </p>
-                <ul class="project-highlights">
-                    <li>Recorded step-by-step video proof and screenshots using screen capture tools for bug submissions.</li>
-                    <li>Tested gameplay mechanics, economy reward flows, and game balance across multiple patch releases.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Sample QA Artifacts -->
-        <section id="artifacts">
-            <h2 class="section-title">Sample QA Deliverables</h2>
-
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Below is a sample of how I structure test cases and document bug reports:
+            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mb-8 font-normal leading-relaxed">
+                Recent BS IT Graduate (Cavite State University, Sept 2026) specializing in <strong class="text-slate-200 font-semibold">manual testing, test case creation, boundary analysis,</strong> and <strong class="text-slate-200 font-semibold">Jira defect reporting</strong> across web platforms and pre-release game builds.
             </p>
 
-            <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--accent-blue);">Sample Test Case Suite</h3>
-            <div class="table-responsive" style="margin-bottom: 32px;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>TC ID</th>
-                            <th>Test Scenario</th>
-                            <th>Test Steps</th>
-                            <th>Expected Result</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>TC_PAT_001</td>
-                            <td>Verify patient search by partial last name</td>
-                            <td>1. Go to Records<br>2. Type "Santos" in search bar<br>3. Click Search</td>
-                            <td>System returns all patients with last name containing "Santos"</td>
-                            <td class="status-pass">PASS</td>
-                        </tr>
-                        <tr>
-                            <td>TC_IMM_002</td>
-                            <td>Validate infant age boundary on immunization form</td>
-                            <td>1. Select Immunization module<br>2. Enter DOB > 24 months<br>3. Submit</td>
-                            <td>System displays validation error: "Age must be 0–24 months"</td>
-                            <td class="status-pass">PASS</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-wrap gap-4 items-center mb-12">
+                <a href="mailto:kravenanonuevo2@gmail.com" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-dark-900 font-bold hover:shadow-lg hover:shadow-brand-cyan/20 transition-all flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Contact Me
+                </a>
+                <a href="https://linkedin.com/in/kraven-cris-añoneuvo" target="_blank" class="px-6 py-3 rounded-xl glass-card text-white font-medium hover:bg-dark-700 transition-all flex items-center gap-2">
+                    <i data-lucide="linkedin" class="w-4 h-4 text-brand-blue"></i> LinkedIn Profile
+                </a>
+                <a href="https://github.com/nagisa314" target="_blank" class="px-6 py-3 rounded-xl glass-card text-white font-medium hover:bg-dark-700 transition-all flex items-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4 text-purple-400"></i> GitHub
+                </a>
             </div>
 
-            <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--accent-blue);">Sample Bug Report Structure</h3>
-            <div class="sample-box">
-<span style="color: var(--accent-purple);">Summary:</span> [Patient Module] Missing age boundary check when scheduling immunization
-<span style="color: var(--accent-purple);">Severity:</span> Medium
-<span style="color: var(--accent-purple);">Environment:</span> Chrome v128 / Windows 11 / Staging Build
-<br>
-<span style="color: var(--accent-purple);">Steps to Reproduce:</span>
-1. Log in as Healthcare Worker.
-2. Navigate to "Immunization Schedule" -> "Add Patient".
-3. Enter patient Date of Birth indicating an age of 5 years (60 months).
-4. Click "Generate Schedule".
-
-<span style="color: var(--accent-purple);">Expected Result:</span> System should prevent submission and display a validation error stating the valid age limit (0-24 months).
-<span style="color: var(--accent-purple);">Actual Result:</span> System accepts the entry and generates a schedule for an ineligible age group.
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-2xl glass-card">
+                <div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white mb-1">BS IT '26</div>
+                    <div class="text-xs font-medium text-slate-400">CvSU Silang Campus</div>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-bold text-brand-cyan mb-1">3+</div>
+                    <div class="text-xs font-medium text-slate-400">QA Projects Tested</div>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-bold text-brand-purple mb-1">STLC & SDLC</div>
+                    <div class="text-xs font-medium text-slate-400">Core Methodology</div>
+                </div>
+                <div>
+                    <div class="text-2xl sm:text-3xl font-bold text-brand-emerald mb-1">Jira & SQL</div>
+                    <div class="text-xs font-medium text-slate-400">Defect Tracking & DB</div>
+                </div>
             </div>
         </section>
 
-        <!-- Education -->
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
-                <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Bachelor of Science in Information Technology</h3>
-                <div style="color: var(--accent-blue); font-weight: 500; margin-bottom: 8px;">Cavite State University – Silang Campus</div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">Graduated: September 10, 2026</div>
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-16 border-t border-white/5">
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">Core QA Competencies</h2>
+                <p class="text-slate-400 text-sm">Methodologies, testing techniques, and software tools I utilize.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan mb-6">
+                        <i data-lucide="check-square" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Manual & Functional Testing</h3>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                        Executing systematic test scenarios to verify application features against functional requirements.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Exploratory Testing</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Regression Testing</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Smoke Testing</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">UI/UX Audit</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue mb-6">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Test Design & Analysis</h3>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                        Designing high-coverage test cases using industry-standard test design techniques.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Boundary Value Analysis (BVA)</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Equivalence Partitioning</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Acceptance Criteria</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-12 h-12 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple mb-6">
+                        <i data-lucide="bug" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Defect Tracking & Tools</h3>
+                    <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                        Reporting reproducible bugs with precise steps, log evidence, and severity classification.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">Jira Familiarity</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">MySQL Database</span>
+                        <span class="px-2.5 py-1 rounded-md bg-dark-700 text-slate-300 text-xs font-mono border border-white/5">OBS Video Proof</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 Kraven Cris Añonuevo • Built for GitHub Pages</p>
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-16 border-t border-white/5">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">Testing Experience & Projects</h2>
+                    <p class="text-slate-400 text-sm">Real projects where I conducted testing, test case design, and bug logging.</p>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="flex gap-2 p-1.5 rounded-xl bg-dark-800 border border-white/5 self-start">
+                    <button onclick="filterProjects('all')" id="btn-all" class="tab-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all">All Projects</button>
+                    <button onclick="filterProjects('web')" id="btn-web" class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all">Web QA</button>
+                    <button onclick="filterProjects('game')" id="btn-game" class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all">Game QA</button>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Project 1: One Health -->
+                <div class="project-item web glass-card p-6 sm:p-8 rounded-2xl">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-cyan tracking-wider uppercase mb-1 block">Web Platform Testing</span>
+                            <h3 class="text-xl font-bold text-white">One Health System (onehealth.my)</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-xs font-semibold">Academic Capstone</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Municipal healthcare web platform (Laravel + React + MySQL). Responsible for end-to-end manual testing, test case creation, duplicate record validation, and boundary checking.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 font-mono text-xs text-slate-300">
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-emerald"></i> Created & Executed Test Case Suites</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-emerald"></i> Applied BVA on Patient Input Fields</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-emerald"></i> Logged & Tracked Bug Tickets in Jira</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-emerald"></i> Checked MySQL Database Collations</div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Golden Tides -->
+                <div class="project-item game glass-card p-6 sm:p-8 rounded-2xl">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-purple tracking-wider uppercase mb-1 block">Game Playtesting</span>
+                            <h3 class="text-xl font-bold text-white">Golden Tides</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-brand-purple/10 border border-brand-purple/20 text-brand-purple text-xs font-semibold">Ad-hoc QA Testing</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Conducted ad-hoc exploratory testing on internal developer demo builds prior to public releases, coordinating bug reports directly via Discord and Jira.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs text-slate-300">
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Internal Build Ad-hoc Testing</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Retested Bug Fixes & Regressions</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-purple"></i> Direct Developer Discord Comms</div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Big Time -->
+                <div class="project-item game glass-card p-6 sm:p-8 rounded-2xl">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-1 block">Alpha / Beta Testing</span>
+                            <h3 class="text-xl font-bold text-white">Big Time (NFT RPG Game)</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">Long-term Beta Tester</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Tested pre-release game patches for gameplay glitches, balance issues, and UI flaws over a 1-year period, attaching video recordings for reproducible bug submissions.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs text-slate-300">
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Video Proof Bug Submissions</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Gameplay & Balance Verification</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QA ARTIFACTS SHOWCASE -->
+        <section id="deliverables" class="py-16 border-t border-white/5">
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">Sample QA Deliverables</h2>
+                <p class="text-slate-400 text-sm">Demonstrating structured test case writing and defect documentation.</p>
+            </div>
+
+            <!-- Tabbed Deliverable Box -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="bg-dark-800/80 px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                        <span class="text-xs font-mono text-slate-400 ml-2">qa-deliverable-sample.json</span>
+                    </div>
+                    <span class="text-xs font-mono text-brand-cyan">Jira & STLC Format</span>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i data-lucide="table" class="w-4 h-4 text-brand-cyan"></i> Test Case Sample Suite
+                    </h3>
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full text-left font-mono text-xs">
+                            <thead>
+                                <tr class="text-brand-cyan border-b border-white/10 bg-white/[0.02]">
+                                    <th class="p-3">TC ID</th>
+                                    <th class="p-3">Scenario</th>
+                                    <th class="p-3">Test Steps</th>
+                                    <th class="p-3">Expected Result</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5 text-slate-300">
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">TC_PAT_001</td>
+                                    <td class="p-3">Search patient by partial last name</td>
+                                    <td class="p-3">1. Open Records<br>2. Type "Santos"<br>3. Click Search</td>
+                                    <td class="p-3">Returns all patients with "Santos"</td>
+                                    <td class="p-3 text-emerald-400 font-bold">PASS</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">TC_IMM_002</td>
+                                    <td class="p-3">Age boundary check (Immunization)</td>
+                                    <td class="p-3">1. Select Immunization<br>2. Enter DOB > 24 mos<br>3. Submit</td>
+                                    <td class="p-3">Displays error: "Age must be 0-24 months"</td>
+                                    <td class="p-3 text-emerald-400 font-bold">PASS</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i data-lucide="bug" class="w-4 h-4 text-purple-400"></i> Sample Bug Ticket (Jira Format)
+                    </h3>
+                    <div class="bg-dark-900/90 rounded-xl p-5 border border-white/10 font-mono text-xs leading-relaxed text-slate-300">
+                        <div class="text-purple-400 font-semibold mb-2">[BUG-OH-05] Missing age boundary check on infant immunization scheduler</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-400 mb-4 pb-3 border-b border-white/10">
+                            <div><strong class="text-slate-200">Severity:</strong> Medium</div>
+                            <div><strong class="text-slate-200">Environment:</strong> Chrome / Windows 11 / Staging</div>
+                        </div>
+                        <div class="text-slate-300 mb-2 font-semibold">Steps to Reproduce:</div>
+                        <ol class="list-decimal list-inside text-slate-400 mb-4 space-y-1">
+                            <td>Log in as Healthcare Worker</td>
+                            <td>Navigate to Immunization Module -> Create Patient Record</td>
+                            <td>Enter Date of Birth indicating an age of 5 years (60 months)</td>
+                            <td>Click "Generate Schedule"</td>
+                        </ol>
+                        <div class="text-slate-300 font-semibold mb-1">Expected vs Actual:</div>
+                        <div class="text-slate-400">
+                            <span class="text-emerald-400">Expected:</span> Form rejects input with "Valid age range is 0-24 months".<br>
+                            <span class="text-red-400">Actual:</span> System accepts entry and generates schedule for an invalid age group.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="pt-16 text-center text-slate-500 text-xs font-mono">
+            <p>© 2026 Kraven Cris Añonuevo • Built with HTML, Tailwind CSS & JavaScript • Hosted on GitHub Pages</p>
         </footer>
-    </div>
 
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Project Filter Function
+        function filterProjects(category) {
+            const items = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + category).classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
