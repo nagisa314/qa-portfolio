@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraven Cris Añonuevo | Junior QA Engineer & Manual Tester Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --accent-purple: #a78bfa;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-card);
+            border-color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-badge {
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--accent-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-highlights li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .project-highlights li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Live QA Samples Box */
+        .sample-box {
+            background: #090d16;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        .status-pass {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.4rem; }
+            .project-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header / Hero -->
+        <header>
+            <span class="profile-badge">Entry-Level QA Engineer & Manual Tester</span>
+            <h1>Kraven Cris Añonuevo</h1>
+            <p class="subtitle">
+                BS Information Technology Graduate (Cavite State University, Sept 2026). Passionate about manual testing, functional verification, test case design, and defect reporting.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:kravenanonuevo2@gmail.com" class="btn btn-primary">✉ Email Me</a>
+                <a href="https://linkedin.com/in/kraven-cris-añoneuvo" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
+                <a href="https://github.com/nagisa314" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+            </div>
+        </header>
+
+        <!-- Core QA Skills -->
+        <section id="skills">
+            <h2 class="section-title">Core QA Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Manual & Functional Testing</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Testing web and game applications against functional requirements.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Exploratory Testing</span>
+                        <span class="tag">Regression Testing</span>
+                        <span class="tag">Smoke Testing</span>
+                        <span class="tag">UI/UX Verification</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Test Design & Methodology</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Structuring effective test suites to catch critical edge cases.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Boundary Value Analysis</span>
+                        <span class="tag">Equivalence Partitioning</span>
+                        <span class="tag">SDLC & STLC</span>
+                        <span class="tag">Use Case Testing</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Defect Tracking & Tools</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Documenting clear, reproducible bug reports and managing test flows.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Jira Familiarity</span>
+                        <span class="tag">MySQL Basics</span>
+                        <span class="tag">Discord/Slack Collaboration</span>
+                        <span class="tag">OBS Video Proof</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QA Projects & Experience -->
+        <section id="projects">
+            <h2 class="section-title">QA Projects & Testing Experience</h2>
+
+            <!-- Project 1: One Health -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">One Health Platform (onehealth.my)</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Municipal Healthcare Management Web App</div>
+                    </div>
+                    <span class="project-badge">Academic Capstone Project</span>
+                </div>
+                <p class="project-desc">
+                    Performed end-to-end manual functional testing and test case design for a web-based healthcare system serving patient records, immunization tracking, and public search.
+                </p>
+                <ul class="project-highlights">
+                    <li>Designed and executed manual test cases covering user search, patient creation, and access control.</li>
+                    <li>Applied Boundary Value Analysis (BVA) on patient registration fields to catch validation missing boundaries.</li>
+                    <li>Reported and tracked defects in Jira with step-by-step reproduction steps and expected vs. actual behavior.</li>
+                    <li>Verified database query behavior (MySQL) for case-insensitive search and duplicate record handling.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Golden Tides -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Golden Tides</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Community Game QA Playtesting</div>
+                    </div>
+                    <span class="project-badge">Ad-hoc Game QA</span>
+                </div>
+                <p class="project-desc">
+                    Participated in ad-hoc functional playtesting on internal developer demo builds for a multiplayer game title.
+                </p>
+                <ul class="project-highlights">
+                    <li>Executed ad-hoc exploratory testing on internal demo builds prior to public updates.</li>
+                    <li>Logged bugs directly to developers via dedicated Discord QA channels and Jira tracking.</li>
+                    <li>Conducted retests on resolved bug fixes to confirm issue resolution without regressions.</li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Big Time -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Big Time (Alpha & Beta Testing)</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">Action RPG Game Testing</div>
+                    </div>
+                    <span class="project-badge">Beta / Alpha Tester</span>
+                </div>
+                <p class="project-desc">
+                    Conducted long-term exploratory testing across pre-release game patches to detect gameplay glitches, balance issues, and UI defects.
+                </p>
+                <ul class="project-highlights">
+                    <li>Recorded step-by-step video proof and screenshots using screen capture tools for bug submissions.</li>
+                    <li>Tested gameplay mechanics, economy reward flows, and game balance across multiple patch releases.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sample QA Artifacts -->
+        <section id="artifacts">
+            <h2 class="section-title">Sample QA Deliverables</h2>
+
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Below is a sample of how I structure test cases and document bug reports:
+            </p>
+
+            <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--accent-blue);">Sample Test Case Suite</h3>
+            <div class="table-responsive" style="margin-bottom: 32px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TC ID</th>
+                            <th>Test Scenario</th>
+                            <th>Test Steps</th>
+                            <th>Expected Result</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC_PAT_001</td>
+                            <td>Verify patient search by partial last name</td>
+                            <td>1. Go to Records<br>2. Type "Santos" in search bar<br>3. Click Search</td>
+                            <td>System returns all patients with last name containing "Santos"</td>
+                            <td class="status-pass">PASS</td>
+                        </tr>
+                        <tr>
+                            <td>TC_IMM_002</td>
+                            <td>Validate infant age boundary on immunization form</td>
+                            <td>1. Select Immunization module<br>2. Enter DOB > 24 months<br>3. Submit</td>
+                            <td>System displays validation error: "Age must be 0–24 months"</td>
+                            <td class="status-pass">PASS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--accent-blue);">Sample Bug Report Structure</h3>
+            <div class="sample-box">
+<span style="color: var(--accent-purple);">Summary:</span> [Patient Module] Missing age boundary check when scheduling immunization
+<span style="color: var(--accent-purple);">Severity:</span> Medium
+<span style="color: var(--accent-purple);">Environment:</span> Chrome v128 / Windows 11 / Staging Build
+<br>
+<span style="color: var(--accent-purple);">Steps to Reproduce:</span>
+1. Log in as Healthcare Worker.
+2. Navigate to "Immunization Schedule" -> "Add Patient".
+3. Enter patient Date of Birth indicating an age of 5 years (60 months).
+4. Click "Generate Schedule".
+
+<span style="color: var(--accent-purple);">Expected Result:</span> System should prevent submission and display a validation error stating the valid age limit (0-24 months).
+<span style="color: var(--accent-purple);">Actual Result:</span> System accepts the entry and generates a schedule for an ineligible age group.
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Bachelor of Science in Information Technology</h3>
+                <div style="color: var(--accent-blue); font-weight: 500; margin-bottom: 8px;">Cavite State University – Silang Campus</div>
+                <div style="color: var(--text-secondary); font-size: 0.9rem;">Graduated: September 10, 2026</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Kraven Cris Añonuevo • Built for GitHub Pages</p>
+        </footer>
+    </div>
+
+</body>
+</html>
