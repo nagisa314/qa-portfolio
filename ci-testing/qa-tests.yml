@@ -1,0 +1,33 @@
+name: QA Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  api-tests:
+    name: API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run API Tests
+        run: |
+          echo "Running API tests..."
+          # Add your API test commands here
+          # Example: newman run api-tests/health-platform-api.postman_collection.json
+          echo "API tests completed"
+
+  lint-markdown:
+    name: Lint Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check markdown files
+        run: |
+          echo "Checking markdown files..."
+          # Add markdown linting if needed
+          echo "Markdown check completed"
