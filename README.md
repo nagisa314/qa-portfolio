@@ -43,6 +43,39 @@ I'm an aspiring QA Engineer with hands-on experience in manual testing, explorat
 ### SQL Queries
 - [QA SQL Cheatsheet](sql-cheatsheet/qa-sql-queries.md)
 
+### TodoMVC Test Suite (Playwright)
+- [todomvc-tests/](todomvc-tests/) — Complete Playwright test suite (19 test cases) for TodoMVC React
+  - Functional tests: Add, Complete, Delete, Edit, Filter
+  - Validation tests: Empty input, spaces, special chars, long text, emoji
+  - Boundary tests: Multiple items, complete all, clear completed
+  - Regression tests: Action sequences
+  - Out-of-the-box tests: Cancel edit, double Enter, hidden button behavior
+- [Calculator Tests](todomvc-tests/tests/calculator.spec.ts) — Basic calculator test suite (4 operations)
+
+## How to Run the Tests
+
+```bash
+# Install dependencies
+cd todomvc-tests
+npm install
+
+# Install Playwright browsers
+npx playwright install chromium
+
+# Run all TodoMVC tests
+npx playwright test tests/todomvc.spec.ts --project=chromium
+
+# Run calculator tests
+npx playwright test tests/calculator.spec.ts --project=chromium
+```
+
+## Lessons Learned
+
+- **Unicode matters:** `−` ≠ `-`, `×` ≠ `*`, `÷` ≠ `/` — always inspect actual UI before writing locators
+- **Page load strategy:** `waitUntil: 'domcontentloaded'` fixes timeout on slow sites
+- **Hidden vs absent:** `toBeHidden()` checks CSS-hidden elements; `toHaveCount(0)` checks DOM absence
+- **Test the real behavior:** When a test fails, verify if the app is wrong OR the test assumption is wrong
+
 ## Tools & Technologies
 
 - **Testing:** Manual Testing, Postman, Playwright, pytest
